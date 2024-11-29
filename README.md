@@ -27,6 +27,8 @@ A full-stack app for identifying transaction locations using Google Maps API and
 5. Access the app:
    - Frontend: http://boilerplatev2.localhost
    - Database: http://phpmyadmin.boilerplatev2.localhost
+   - Test Login:
+    - gabriel@gmail.com | gabriel
 
 ## Features
 
