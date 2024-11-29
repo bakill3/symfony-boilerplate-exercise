@@ -1,14 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import svgLoader from "vite-svg-loader";
+import dotenv from "dotenv"; // Load .env variables
+
+dotenv.config(); // Load environment variables from .env
 
 export default defineNuxtConfig({
   srcDir: "src/",
   modules: ["@pinia/nuxt", "@nuxtjs/i18n", "nuxt-primevue"],
   runtimeConfig: {
     API_URL: process.env.API_URL || "",
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY || "",
+    public: {
+      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY || "",
+    },
   },
   primevue: {
-    /* Options */
     options: {
       unstyled: false,
     },
@@ -18,12 +24,10 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      // @see https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       title: "Boilerplate TCM v2",
       meta: [
-        // <meta name="description" content="Boilerplate Symfony / Nuxt / Docker">
         { name: "description", content: "Boilerplate Symfony / Nuxt / Docker" },
       ],
       link: [
@@ -31,6 +35,13 @@ export default defineNuxtConfig({
           rel: "icon",
           type: "image/svg+xml",
           href: "/favicon.svg",
+        },
+      ],
+      script: [
+        {
+          src: `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places`,
+          async: true,
+          defer: true,
         },
       ],
     },
@@ -58,5 +69,4 @@ export default defineNuxtConfig({
     "src/assets/styles/_mixins.scss",
     "src/assets/styles/main.scss",
   ],
-  // ssr: false
 });

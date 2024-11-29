@@ -43,7 +43,9 @@ export default {
       },
       menu: {
         appMenu: {
+          dashboard: "Tableau de bord",
           users: "Utilisateurs",
+          transactions: "Transactions",
           page1: "page1",
           page2: "page2",
           validation: "validation",

@@ -42,11 +42,6 @@ class User implements UserInterface, \JsonSerializable, PasswordAuthenticatedUse
         $this->email = $email;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
     public function getUserIdentifier(): string
     {
         return $this->email;
@@ -58,13 +53,6 @@ class User implements UserInterface, \JsonSerializable, PasswordAuthenticatedUse
         return $this->email;
     }
 
-    /**
-     * This is "primary" role
-     *
-     * @see UserInterface
-     *
-     * @return array<string>
-     */
     public function getRoles(): array
     {
         return $this->roles;
@@ -76,12 +64,6 @@ class User implements UserInterface, \JsonSerializable, PasswordAuthenticatedUse
         $this->roles = $roles;
     }
 
-    /**
-     * DO NOT USE this method, it is required for the interface UserInterface
-     * This method can be removed in Symfony 6.0 - is not needed for apps that do not check user passwords.
-     *
-     * @see PasswordAuthenticatedUserInterface
-     */
     public function getPassword(): string
     {
         return $this->password;
@@ -92,26 +74,14 @@ class User implements UserInterface, \JsonSerializable, PasswordAuthenticatedUse
         $this->password = $password;
     }
 
-    /**
-     * DO NOT USE this method, it is required for the interface UserInterface
-     * This method can be removed in Symfony 6.0 - is not needed for apps that do not check user passwords.
-     *
-     * @see UserInterface
-     */
     public function getSalt(): string|null
     {
         return null;
     }
 
-    /**
-     * called after authentication
-     *
-     * @see UserInterface
-     */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        
     }
 
     public function jsonSerialize(): mixed
@@ -120,6 +90,7 @@ class User implements UserInterface, \JsonSerializable, PasswordAuthenticatedUse
             'id' => $this->getId(),
             'email' => $this->getEmail(),
             'username' => $this->getUsername(),
+            'roles' => $this->getRoles(),
         ];
     }
 

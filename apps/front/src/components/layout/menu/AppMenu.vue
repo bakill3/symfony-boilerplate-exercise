@@ -31,9 +31,19 @@ const authStore = useAuthUser();
 const { $appFetch } = useNuxtApp();
 const items = computed(() => [
   {
+    label: t("components.layout.menu.appMenu.dashboard"),
+    icon: "pi pi-fw pi-chart-line",
+    route: "/dashboard",
+  },
+  {
     label: t("components.layout.menu.appMenu.users"),
     icon: "pi pi-fw pi-file",
     route: "/users",
+  },
+  {
+    label: t("components.layout.menu.appMenu.transactions"),
+    icon: "pi pi-fw pi-dollar",
+    route: "/transactions",
   },
   {
     label: t("components.layout.menu.appMenu.page1"),

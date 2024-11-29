@@ -44,7 +44,9 @@ export default {
       },
       menu: {
         appMenu: {
+          dashboard: "Dashboard",
           users: "Users",
+          transactions: "Transactions",
           page1: "page1",
           page2: "page2",
           validation: "validation",
@@ -55,10 +57,10 @@ export default {
     demo: {
       validation: {
         form: {
-          startDate: "Date de début",
-          textField: "Champ texte",
+          startDate: "Start Date",
+          textField: "Text Field",
           siret: "Siret",
-          nestedDemoEntityName: "Nom de l'entité imbriquée",
+          nestedDemoEntityName: "Nested Entity Name",
         },
       },
     },
@@ -78,7 +80,7 @@ export default {
     },
     user: {
       index: {
-        createButton: "Create an user",
+        createButton: "Create a user",
       },
     },
   },
